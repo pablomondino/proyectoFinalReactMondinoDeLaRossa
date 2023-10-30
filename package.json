@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "homepage": "https://pablomondino.github.io/proyectoFinalReactMondinoDeLaRossa/",
-    "predeploy": "vite built",
+    "predeploy": "vite build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
