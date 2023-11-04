@@ -59,7 +59,8 @@ const ItemListContainer = ({greeting}) => {
 
         .then(snapshot => {
 
-            console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+           // console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+            setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
 
         })
 
