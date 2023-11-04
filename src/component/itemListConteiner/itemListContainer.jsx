@@ -3,6 +3,11 @@ import { useEffect, useRef, useState } from "react"
 import {Spin} from 'antd';
 import Item from "../item/item";
 import { Link } from "react-router-dom";
+//esto estoy agregando
+import { db } from "../../firebase/client";
+import { collection, doc, getDoc } from "firebase/firestore";
+//import { getDoc } from "firebase/firestore";
+import { getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
@@ -33,6 +38,33 @@ const ItemListContainer = ({greeting}) => {
     // 2) Llamar a la promise y guardar su resultado... Acuerdense:
     // QUE ESTAN TRABAJANDO CON REACT. 
     useEffect(() => {
+
+
+
+
+        /* va con esto para un productp
+        const productRef= doc(db,"products", "8xPr3d2J2nOFIRitdCBd")
+        getDoc(productRef)
+        .then((snapshot)=>{
+            if (snapshot.exists()){
+                console.log(
+                    {id:snapshot, ...snapshot.data()})
+                    setProducts({id:snapshot, ...snapshot.data()}) 
+            }
+        }*/
+
+        const productsRef = collection(db, "products")
+
+        getDocs(productsRef)
+
+        .then(snapshot => {
+
+            console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+
+        })
+
+        .catch(e => console.error(e))
+
         /*
         promesa
         .then(res => {
@@ -41,14 +73,20 @@ const ItemListContainer = ({greeting}) => {
         })
         .catch(error => console.error(error.message))
         */
-
+        //saco lo que sigue que era para conectar a la api
+        /*
         fetch('https://fakestoreapi.com/products?limit=9')
             .then(res=>res.json())
             .then(json=>{console.log(json)
                 setProducts(json)})
             .catch(error => console.error(error))
+         */
 
-    }, [])
+       /* va con esto para un producto
+        )}
+       */
+            }
+        , [])
 
 
     return(
