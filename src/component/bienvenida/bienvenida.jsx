@@ -6,7 +6,7 @@ const Bienvenida = () => {
 
         <>
 
-            <h1> Bienvenidos a Tienda La Pietá </h1>
+            <h1> Hola! Bienvenidos a Tienda La Pietá </h1>
             <Link to={"/"}> Ir a productos </Link>
         </>
     )
