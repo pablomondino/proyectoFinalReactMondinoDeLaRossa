@@ -5,15 +5,18 @@ import Item from "../item/item";
 import { Link, useParams, } from "react-router-dom";
 //esto estoy agregando
 import { db } from "../../firebase/client";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, query, where } from "firebase/firestore";
 //import { getDoc } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
 //import { useParams } from "react-router-dom";
+//import { query, where } from "firebase/firestore";
+
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
     const {categoryId}=useParams()
 
+   
 
     console.log(categoryId)
 
@@ -60,20 +63,50 @@ const ItemListContainer = ({greeting}) => {
             }
         }*/
 
+
+            // -***esto es para importar varios
+      /*   
+      
         const productsRef = collection(db, "products")
-       
         getDocs(productsRef)
       
 
 
         .then(snapshot => {
 
-           // console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+            console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
             setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
 
         })
 
         .catch(e => console.error(e))
+        */
+      
+        //para hacer query
+       // const productsRef = collection(db, "products")   //la misma referencia
+        const productsRefFilter = query(
+            collection(db,"products"),
+            where("categoryId", "==", "sillas")
+
+
+
+        )
+        getDocs(productsRefFilter)
+      
+
+
+        .then(snapshot => {
+
+            console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+            setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+
+        })
+
+        .catch(e => console.error(e))
+
+
+
+
 
         /*
         promesa
