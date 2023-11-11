@@ -2,15 +2,22 @@ import { Button } from "antd"
 import { useEffect, useRef, useState } from "react"
 import {Spin} from 'antd';
 import Item from "../item/item";
-import { Link } from "react-router-dom";
+import { Link, useParams, } from "react-router-dom";
 //esto estoy agregando
 import { db } from "../../firebase/client";
 import { collection, doc, getDoc } from "firebase/firestore";
 //import { getDoc } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
+//import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
+    const {categoryId}=useParams()
+
+
+    console.log(categoryId)
+
+
     // Crear una promise que devuelva un array de productos con el siguiente formato:
     // {name: "producto1", precio: 2000, id: 1}. IMPORTANTE: El ID no puede repetirse
     // Simular tiempo de espera
@@ -54,8 +61,10 @@ const ItemListContainer = ({greeting}) => {
         }*/
 
         const productsRef = collection(db, "products")
-
+       
         getDocs(productsRef)
+      
+
 
         .then(snapshot => {
 
@@ -87,7 +96,7 @@ const ItemListContainer = ({greeting}) => {
         )}
        */
             }
-        , [])
+        , [categoryId])
 
 
     return(
