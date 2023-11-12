@@ -16,7 +16,7 @@ const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
     const {categoryId}=useParams()
 
-   
+    const [loding,setLoading]=useState(true)
 
     console.log(categoryId)
 
@@ -65,7 +65,7 @@ const ItemListContainer = ({greeting}) => {
 
 
             // -***esto es para importar varios
-      /*   
+        
       
         const productsRef = collection(db, "products")
         getDocs(productsRef)
@@ -75,15 +75,16 @@ const ItemListContainer = ({greeting}) => {
         .then(snapshot => {
 
             console.log(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+           //snapsot,docs va a ser un array con todos los documentos
             setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
 
         })
 
         .catch(e => console.error(e))
-        */
-      
+        .finally(()=>setLoading(false))
+            
         //para hacer query
-       // const productsRef = collection(db, "products")   //la misma referencia
+      /*
         const productsRefFilter = query(
             collection(db,"products"),
             where("categoryId", "==", "sillas")
@@ -103,7 +104,7 @@ const ItemListContainer = ({greeting}) => {
         })
 
         .catch(e => console.error(e))
-
+        */
 
 
 
@@ -134,8 +135,7 @@ const ItemListContainer = ({greeting}) => {
 
     return(
         <div className={StyleSheet.container}>
-
-            
+         {/*estoe es comentario*/}  
             <h2 className="saludo">{greeting}</h2>
             {/* 3) Recorrer el array de productos y mostrar nombre y precio */}
             {products.length > 0 ? (

@@ -11,8 +11,8 @@ const Item = ({ producto }) => {
             <p>{producto.price}</p>
 
             <img src={producto.image} alt="" style={{ width: '200px', height: 'auto' }} />
-            <Link to ={`/item/${producto.id}`}>Ver mas </Link>
-
+            
+            <Link to={`/item/${producto.id}`}>Ver más</Link>
         </div>
     )
 }
