@@ -17,7 +17,14 @@ const items = [
             <Link to={"/"}> Ir a productos</Link>           
 
            
-        ),
+        )},
+        {
+            label: (
+               
+                <Link to={"/cart"}> Ir a Carrito</Link>           
+    
+               
+            ),
         key: '1',
     },
     {

@@ -13,38 +13,30 @@ const ItemDetailContainer = () => {
     const [loding,setLoading]=useState(true)
 
     //const {nombreCategoria}= useParams()
-    useEffect(()=>{
-            //db, "products",
-            const productRef= doc(db, "products", id)
-        getDoc(productRef) //agregue eso
-            
-        .then(snapshop=>{
-            if( snapshop.exists()){
-                setProducto(
-                    {id: snapshop.id,
-                    ...snapshop.data()
-                    }
-                )
-            }
 
-        })
-        .catch(e=>console.error(e))
+   //*********************
+   useEffect(() => {
+    if (id) {
+        const productRef = doc(db, "products", id);
 
-        
-        .finally(()=>setLoading(false))
-        //aca estaba hecho con la api
-                /*
-        fetch(`https://fakestoreapi.com/products/${id}`)
-        .then(res=>res.json())
-        .then(json=>{
-            setProducto(json)
-            console.log(json)
-        })
-        .catch(error => console.error(error))
-        */
+        getDoc(productRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    setProducto({
+                        id: snapshot.id,
+                        ...snapshot.data()
+                    });
+                }
+            })
+            .catch((e) => console.error(e))
+            .finally(() => setLoading(false));
+    }
+}, [id]);
 
 
-    }, [id])
+   //***********************
+
+
        
     return(
         //<img src={producto.image} alt="" />
@@ -54,7 +46,7 @@ const ItemDetailContainer = () => {
           
             <h3>soy el producto {producto?.description}</h3>
 
-            <img src={producto?.image} alt="" style={{ width: '200px', height: 'auto' }} />
+            <img src={producto?.image} alt="" style={{ width: '300px', height: 'auto' }} />
 
             
           

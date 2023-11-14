@@ -28,9 +28,9 @@ function App() {
 
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<ItemListContainer greeting="Bienvenido a Tienda La Pietá" />} />
+          <Route exact path="/" element={<ItemListContainer greeting="Bienvenido a Tiendas La Pietá" />} />
          
-          <Route exact path="/category/:categoryId" element={<ItemListContainer greeting="categorias" />} />
+          <Route exact path="/categoryId/:nombreCategoria" element={<ItemListContainer greeting="categorias" />} />
 
           <Route exact path="/bienvenida" element={<Bienvenida />} />
           //<Route exact path="/checkout" element={<otroelementocheckout/>} />
