@@ -9,7 +9,7 @@ import Bienvenida from './component/bienvenida/bienvenida'
 import NotFound from './component/notFound/notFound'
 import ItemDetailConteiner from './component/itemDetailContainer/itemDetailContainer'
 import Cart from './component/cart/cart'
-
+import NavBar1 from './component/navbar1/navbar1'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +25,7 @@ function App() {
     <>
       <BrowserRouter basename="/proyectoFinalReactMondinoDeLaRossa">
         <h2>TIENDA LA PIETÁ</h2>
-
+        <NavBar1 />
         <NavBar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer greeting="Bienvenido a Tiendas La Pietá" />} />
