@@ -10,9 +10,8 @@ import NotFound from './component/notFound/notFound'
 import ItemDetailConteiner from './component/itemDetailContainer/itemDetailContainer'
 import Cart from './component/cart/cart'
 import NavBar1 from './component/navbar1/navbar1'
-import { CartComponentContext } from './context/cartContext'
-
-
+import  CartComponentContext  from './context/cartContext'
+//import { CartComponentContext } from './context/cartComponentContext';
 function App() {
   const [count, setCount] = useState(0)
   //    <ItemListContainer greeting="Bienvenido a Tienda La Pietá"/>
