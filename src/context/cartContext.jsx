@@ -43,9 +43,11 @@ const CartComponentContext = ({children}) => {
         setProductos(mockProductos)
     }, [])
 //aca agrego numero setNumero y suma
-    return <CartContext.Provider value={{productos,numero,setNumero, suma}}>
+    return (
+    <CartContext.Provider value={{productos,numero,setNumero, suma}}>
         {children}
     </CartContext.Provider>
+    )
 }
 
 export default CartComponentContext

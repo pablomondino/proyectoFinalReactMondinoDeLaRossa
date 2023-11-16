@@ -8,7 +8,7 @@ import { CartContext } from '../../context/cartContext';
 import { useContext } from 'react';
 const CartWitget = () => {
 
-    // para consumir context -----AGREGUE NUMERO EN EL COUNTERMAS ABAJO
+    // para consumir context -----AGREGUE NUMERO EN EL COUNTERMAS ABAJO******
     const{numero}=useContext(CartContext)
 
     return (
