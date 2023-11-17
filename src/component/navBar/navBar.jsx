@@ -6,26 +6,40 @@ import { Link } from 'react-router-dom';
 const items = [
     {
         label: (
-            
-                 <Link to={"/bienvenida"}> Ir a Bienvenida</Link>           
+
+            <Link to={"/bienvenida"}> Ir a Bienvenida</Link>
         ),
         key: '0',
     },
     {
         label: (
-           
-            <Link to={"/"}> Ir a productos</Link>           
 
-           
-        )},
-        {
-            label: (
-               
-                <Link to={"/cart"}> Ir a Carrito</Link>           
-    
-               
-            ),
+            <Link to={"/"}> Ir a productos</Link>
+
+
+        )
+    },
+    {
+        label: (
+
+            <Link to={"/cart"}> Ir a Carrito</Link>
+
+
+        ),
         key: '1',
+    },
+
+
+
+
+    {
+        label: (
+
+            <Link to={"/checkout"}> Ir a Checkout</Link>
+
+
+        ),
+        key: '2',
     },
     {
         type: 'divider',
@@ -42,17 +56,20 @@ const items = [
 
 const NavBar = () => {
 
-    const arrayDeCategorias=  [
+    const arrayDeCategorias=[]
+/*
+    const arrayDeCategorias = [
         "electronics",
         "jewelery",
         "men's clothing",
         "women's clothing"
-        ]
+    ]
+  */
     return (
         <div>
             <p>La Pietá  - En esta tienda encontrás lo que buscás</p>
-           {arrayDeCategorias.map((cat,index)=>
-            <p key={index}>{cat}</p>)}
+            {arrayDeCategorias.map((cat, index) =>
+                <p key={index}>{cat}</p>)}
             <Dropdown
                 menu={{
                     items,

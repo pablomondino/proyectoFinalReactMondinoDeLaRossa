@@ -20,21 +20,23 @@ const mockProductos = [{
 
 // Creamos el contexto con createContext
 //export const ShopContext = createContext(); 
-export const CartContext = createContext(); 
+export const CartContext = createContext();
 
 
-// Creamos un componente para nuestro contexto
-const CartComponentContext = ({children}) => {
+    // Creamos un componente para nuestro contexto
+    const CartComponentContext = ({ children }) => {
     // agrego numero y setNumero
     const [productos, setProductos] = useState([])
+    
+    const [cart, setCart]=useState([])
 
-     //agregue
-    const [numero,setNumero]=useState([2])
-    const limpiarProductos = () =>{
+    //agregue
+    const [numero, setNumero] = useState([2])
+    const limpiarProductos = () => {
         setProductos([])
     }
     //agrego funcion
-    const suma = () =>{
+    const suma = () => {
         setNumero(numero + 1)
     }
 
@@ -42,11 +44,11 @@ const CartComponentContext = ({children}) => {
     useEffect(() => {
         setProductos(mockProductos)
     }, [])
-//aca agrego numero setNumero y suma
+    //aca agrego numero setNumero y suma
     return (
-    <CartContext.Provider value={{productos,numero,setNumero, suma}}>
-        {children}
-    </CartContext.Provider>
+        <CartContext.Provider value={{ productos, numero, setNumero, suma }}>
+            {children}
+        </CartContext.Provider>
     )
 }
 

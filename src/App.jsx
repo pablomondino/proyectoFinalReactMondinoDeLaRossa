@@ -11,6 +11,10 @@ import ItemDetailConteiner from './component/itemDetailContainer/itemDetailConta
 import Cart from './component/cart/cart'
 import NavBar1 from './component/navbar1/navbar1'
 import  CartComponentContext  from './context/cartContext'
+
+
+import Checkout from './component/checkout/chechout'
+
 //import { CartComponentContext } from './context/cartComponentContext';
 function App() {
   const [count, setCount] = useState(0)
@@ -39,6 +43,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailConteiner />} />
 
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/checkout" element={<Checkout/>} />
 
 
           <Route exact path="*" element={<NotFound />} />
