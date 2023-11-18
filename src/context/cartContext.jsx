@@ -23,12 +23,25 @@ const mockProductos = [{
 export const CartContext = createContext();
 
 
-    // Creamos un componente para nuestro contexto
-    const CartComponentContext = ({ children }) => {
+// Creamos un componente para nuestro contexto
+const CartComponentContext = ({ children }) => {
+    
+    
+    
     // agrego numero y setNumero
     const [productos, setProductos] = useState([])
+
+    const [cart, setCart] = useState([])
+//nuevo
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+      };
     
-    const [cart, setCart]=useState([])
+      const getCart = () => {
+        return cart;
+      };
+    
+//hasta aca nuevo
 
     //agregue
     const [numero, setNumero] = useState([2])
@@ -46,13 +59,30 @@ export const CartContext = createContext();
     }, [])
     //aca agrego numero setNumero y suma
     return (
-        <CartContext.Provider value={{ productos, numero, setNumero, suma }}>
-            {children}
-        </CartContext.Provider>
+       
+     <CartContext.Provider value={{ productos, numero, setNumero, suma, addToCart, cartLength: cart.length }}>
+     {children}
+   </CartContext.Provider>
+
     )
+    
+
+
+
+    
 }
 
 export default CartComponentContext
+
+
+/*
+ <CartContext.Provider value={{ productos, numero, setNumero, suma }}>
+            {children}
+        </CartContext.Provider>
+
+*/
+
+
 
 
 // estaba así pero ahora lo exporto por default
